@@ -1,0 +1,25 @@
+﻿@model List<Site_3.Models.Message>
+
+<div class="card">
+    <h2>Мои черновики</h2>
+    @if (Model.Any())
+    {
+        <ul>
+            @foreach (var m in Model)
+            {
+                <li>@m.Content (ID: @m.Id)</li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p>Нет черновиков.</p>
+    }
+
+    <h3>Тестирование вторичного IDOR:</h3>
+    <p>Отправьте POST-запрос на <code>/messages/draft</code> с телом:</p>
+    <pre>{
+  "Content": "Тестовый черновик",
+  "TargetUserId": 2
+}</pre>
+</div>

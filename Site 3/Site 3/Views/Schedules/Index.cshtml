@@ -1,0 +1,15 @@
+﻿<div class="card">
+    <h2>Экспорт данных</h2>
+    <form method="post" action="/schedules/export">
+        <div><input type="text" name="CronExpression" value="0 0 * * *" /></div>
+        <button type="submit">Создать расписание</button>
+    </form>
+
+    <h3>Получить экспорт другого пользователя:</h3>
+    <p>Перейдите: <code>/schedules/export/result/2</code></p>
+
+    <h3>JSON globbing для расписаний:</h3>
+    <pre>{
+  "userIds": [1, 2]
+}</pre>
+</div>

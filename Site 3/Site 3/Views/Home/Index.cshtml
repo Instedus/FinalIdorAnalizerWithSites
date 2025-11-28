@@ -1,0 +1,27 @@
+﻿<div class="card">
+    <h2>Добро пожаловать!</h2>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <p>Вы вошли как <strong>@User.Identity.Name</strong>.</p>
+        <p>Тестируйте <strong>вторичные IDOR</strong> через:</p>
+        <ul>
+            <li><a href="/messages/drafts">Сохранение черновиков</a></li>
+            <li><a href="/schedules">Планировщик экспорта</a></li>
+            <li><code>POST /shared-links</code> → <code>GET /shared/{id}</code></li>
+        </ul>
+    }
+    else
+    {
+        <p><a href="/auth/login">Войдите</a> для доступа к функционалу.</p>
+    }
+</div>
+
+<div class="card">
+    <h3>Уязвимые эндпоинты:</h3>
+    <ul>
+        <li><code>POST /messages/draft</code> — указать <code>TargetUserId</code></li>
+        <li><code>GET /schedules/export/result/2</code> — получить экспорт другого пользователя</li>
+        <li><code>POST /schedules/batch</code> — JSON globbing для расписаний</li>
+        <li><code>GET /shared-links/search?targetId=1</code> — найти общие ссылки</li>
+    </ul>
+</div>

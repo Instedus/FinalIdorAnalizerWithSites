@@ -1,0 +1,10 @@
+﻿<h2>Добро пожаловать на тестовый сайт для IDOR!</h2>
+<p>Этот сайт специально создан для тестирования уязвимостей Insecure Direct Object Reference (IDOR).</p>
+@if (User.Identity.IsAuthenticated)
+{
+    <p>Вы вошли как <strong>@User.Identity.Name</strong>. Перейдите в «Мои документы», чтобы начать тестирование.</p>
+}
+else
+{
+    <p><a href="/auth/login">Войдите</a>, чтобы получить доступ к функционалу.</p>
+}

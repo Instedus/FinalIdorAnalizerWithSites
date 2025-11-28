@@ -1,0 +1,20 @@
+﻿@model List<Site_1.Models.DocumentViewModel>
+
+<h2>Мои документы</h2>
+
+@if (Model.Any())
+{
+    <ul>
+        @foreach (var doc in Model)
+        {
+            <li>
+                <a href="/documents/@doc.Id">@doc.Title</a>
+                <br /><small>UUID для тестов: <code>@doc.Uuid</code></small>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>У вас пока нет документов.</p>
+}

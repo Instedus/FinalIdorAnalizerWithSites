@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Вход";
+}
+
+<div class="card">
+    <h2>Вход в систему</h2>
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="error">@Html.ValidationSummary()</div>
+    }
+
+    <form method="post" action="/auth/login">
+        <div><label>Имя пользователя:</label><br /><input type="text" name="Username" required /></div>
+        <div style="margin-top:10px;"><label>Пароль:</label><br /><input type="password" name="Password" required /></div>
+        <div style="margin-top:15px;"><button type="submit">Войти</button></div>
+    </form>
+
+    <h3>Тестовые учетные данные:</h3>
+    <ul>
+        <li><strong>apiuser1</strong> / <code>api1pass</code></li>
+        <li><strong>apiuser2</strong> / <code>api2pass</code></li>
+    </ul>
+</div>

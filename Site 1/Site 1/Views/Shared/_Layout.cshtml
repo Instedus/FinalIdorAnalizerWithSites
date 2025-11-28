@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>IDOR Test Site</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .nav { margin-bottom: 20px; }
+        .nav a { margin-right: 15px; text-decoration: none; color: #0066cc; }
+        .nav a:hover { text-decoration: underline; }
+        .error { color: red; }
+        .success { color: green; }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="/">Главная</a>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <a href="/documents/list">Мои документы</a>
+            <a href="/auth/logout">Выйти (@User.Identity.Name)</a>
+        }
+        else
+        {
+            <a href="/auth/login">Войти</a>
+        }
+    </div>
+
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

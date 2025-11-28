@@ -1,0 +1,23 @@
+﻿<div class="card">
+    <h2>Добро пожаловать на тестовый API-сайт с уязвимостями IDOR!</h2>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <p>Вы вошли как <strong>@User.Identity.Name</strong>.</p>
+        <p>Перейдите в <a href="/profiles/list">Мои профили</a>, чтобы увидеть уязвимые эндпоинты.</p>
+    }
+    else
+    {
+        <p><a href="/auth/login">Войдите</a>, чтобы получить доступ к функционалу.</p>
+    }
+</div>
+
+<div class="card">
+    <h3>Уязвимые API-эндпоинты для тестирования:</h3>
+    <ul>
+        <li><code>GET /api/v1/profiles/2</code> — уязвимая версия (без проверки доступа)</li>
+        <li><code>GET /api/v2/profiles/2</code> — частично защищённая версия</li>
+        <li><code>GET /api/v1/profiles/search?id=1,2</code> — parameter pollution</li>
+        <li><code>POST /api/v1/profiles/current</code> — HTTP-метод bypass (возвращает ВСЕ профили)</li>
+        <li><code>GET /api/files/file1</code> с Accept: application/xml — Content-Type обход</li>
+    </ul>
+</div>
