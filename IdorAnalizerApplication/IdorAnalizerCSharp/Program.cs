@@ -11,7 +11,6 @@ namespace IdorAnalizerCSharp
         {
             try
             {
-                // ваш текущий код парсинга и вызова RunScanAsync
                 var parser = new Parser(settings => settings.HelpWriter = null);
                 var result = parser.ParseArguments<ScanOptions>(args);
                 await result.MapResult(
@@ -28,7 +27,6 @@ namespace IdorAnalizerCSharp
 
         static async Task RunScanAsync(ScanOptions options)
         {
-            // Вывод баннера
             AnsiConsole.WriteLine(new string('=', 60));
             AnsiConsole.WriteLine("[cyan]ADVANCED IDOR Scanner v2.0[/]");
             AnsiConsole.WriteLine("[cyan]With integrated techniques from Habr article: https://habr.com/ru/articles/848116/[/]");
@@ -42,7 +40,6 @@ namespace IdorAnalizerCSharp
             AnsiConsole.WriteLine(new string('=', 60));
             AnsiConsole.WriteLine();
 
-            // Настройка HTTP клиента
             var httpClientHandler = new HttpClientHandler
             {
                 AllowAutoRedirect = true,
@@ -50,7 +47,6 @@ namespace IdorAnalizerCSharp
                 UseCookies = true
             };
 
-            // Отключение проверки SSL для тестирования
             httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true;
 
             if (httpClientHandler.SupportsAutomaticDecompression)

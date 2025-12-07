@@ -1,0 +1,8 @@
+1 - open project of site(1,2,3)
+2 - run application 
+3 - open chrome and remember port
+4 - press f12 and find cookie session data(.AspNet)
+5 - open idor analyzer project folder and type in cmd "dotnet build"
+6 - then type "dotnet run -- https://localhost:port -c "YOUR_COOKIE_SESSION" -a -t 5 -m 30 -o report.pdf -f pdf"
+
+---WARNING--- DO NOT USE THIS ANALIZER FOR THE SITES THAT DIDNT GIVE YOU PERMISSION!!! 
