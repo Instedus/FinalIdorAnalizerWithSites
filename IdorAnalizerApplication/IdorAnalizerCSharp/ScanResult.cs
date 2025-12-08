@@ -7,9 +7,9 @@
         public string Parameter { get; set; }
         public string OriginalValue { get; set; }
         public string TestValue { get; set; }
-        public string TestType { get; set; } // Новый тип теста
-        public string HttpMethod { get; set; } // Новый метод запроса
-        public string ContentType { get; set; } // Новый тип контента
+        public string TestType { get; set; }
+        public string HttpMethod { get; set; }
+        public string ContentType { get; set; }
         public bool IsVulnerable { get; set; }
         public double Confidence { get; set; }
         public string RiskLevel { get; set; }

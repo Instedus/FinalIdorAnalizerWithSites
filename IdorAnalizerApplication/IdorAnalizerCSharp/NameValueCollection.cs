@@ -22,7 +22,6 @@ namespace IdorAnalizerCSharp
 
         public string[] AllKeys => _collection.Keys.ToArray();
 
-        // Добавляем отсутствующее свойство Count
         public int Count => _collection.Count;
 
         public string this[string key]
